@@ -1,0 +1,113 @@
+{
+  "id": "introvert_extrovert",
+  "title": "Introvert vs Extrovert",
+  "subtitle": "Where you recharge and shine",
+  "iconName": "nights_stay",
+  "accentHue": 278.0,
+  "scoringMode": "dominant_trait",
+  "tieBreakerOrder": ["introvert", "extrovert"],
+  "questions": [
+    {
+      "id": "ie1",
+      "text": "After a long week, you recharge best by…",
+      "options": [
+        { "label": "Quiet solo time, books, or deep focus", "scores": { "introvert": 3, "extrovert": 0 } },
+        { "label": "A lively night out with friends", "scores": { "introvert": 0, "extrovert": 3 } },
+        { "label": "A small dinner with one or two people", "scores": { "introvert": 2, "extrovert": 1 } },
+        { "label": "Something spontaneous—whatever sounds fun", "scores": { "introvert": 0, "extrovert": 2 } }
+      ]
+    },
+    {
+      "id": "ie2",
+      "text": "In a new group, you usually…",
+      "options": [
+        { "label": "Listen first and join when you have something meaningful", "scores": { "introvert": 3, "extrovert": 0 } },
+        { "label": "Jump in, break the ice, keep energy high", "scores": { "introvert": 0, "extrovert": 3 } },
+        { "label": "Warm up slowly then open up", "scores": { "introvert": 2, "extrovert": 1 } },
+        { "label": "Scan the room for interesting people to meet", "scores": { "introvert": 1, "extrovert": 2 } }
+      ]
+    },
+    {
+      "id": "ie3",
+      "text": "When solving a problem, you prefer…",
+      "options": [
+        { "label": "Thinking it through alone before sharing", "scores": { "introvert": 3, "extrovert": 0 } },
+        { "label": "Talking it out loud with others immediately", "scores": { "introvert": 0, "extrovert": 3 } },
+        { "label": "Draft ideas solo, then refine in discussion", "scores": { "introvert": 2, "extrovert": 1 } },
+        { "label": "A fast brainstorm with the team", "scores": { "introvert": 0, "extrovert": 2 } }
+      ]
+    },
+    {
+      "id": "ie4",
+      "text": "Notifications and social energy feel like…",
+      "options": [
+        { "label": "A drain unless you curate them carefully", "scores": { "introvert": 3, "extrovert": 0 } },
+        { "label": "Fuel—you like staying connected", "scores": { "introvert": 0, "extrovert": 3 } },
+        { "label": "Fine in bursts, then you need quiet", "scores": { "introvert": 2, "extrovert": 1 } },
+        { "label": "Exciting when something fun is happening", "scores": { "introvert": 0, "extrovert": 2 } }
+      ]
+    },
+    {
+      "id": "ie5",
+      "text": "Your ideal weekend project is…",
+      "options": [
+        { "label": "Deep work alone on something creative", "scores": { "introvert": 3, "extrovert": 0 } },
+        { "label": "Hosting, events, or group activities", "scores": { "introvert": 0, "extrovert": 3 } },
+        { "label": "Collaborating with a trusted partner", "scores": { "introvert": 2, "extrovert": 1 } },
+        { "label": "Trying something new with a crowd", "scores": { "introvert": 0, "extrovert": 2 } }
+      ]
+    },
+    {
+      "id": "ie6",
+      "text": "When you’re stressed, you…",
+      "options": [
+        { "label": "Withdraw to process feelings privately", "scores": { "introvert": 3, "extrovert": 0 } },
+        { "label": "Reach out and talk it through with people", "scores": { "introvert": 0, "extrovert": 3 } },
+        { "label": "Alternate between solitude and one close friend", "scores": { "introvert": 2, "extrovert": 1 } },
+        { "label": "Stay busy and social to reset your mood", "scores": { "introvert": 0, "extrovert": 2 } }
+      ]
+    },
+    {
+      "id": "ie7",
+      "text": "At work or school, you shine when…",
+      "options": [
+        { "label": "You have uninterrupted focus time", "scores": { "introvert": 3, "extrovert": 0 } },
+        { "label": "You can present, pitch, and energize others", "scores": { "introvert": 0, "extrovert": 3 } },
+        { "label": "You balance solo work with collaboration", "scores": { "introvert": 2, "extrovert": 1 } },
+        { "label": "The room needs momentum and morale", "scores": { "introvert": 0, "extrovert": 2 } }
+      ]
+    },
+    {
+      "id": "ie8",
+      "text": "Your social battery is…",
+      "options": [
+        { "label": "Limited—quality over quantity", "scores": { "introvert": 3, "extrovert": 0 } },
+        { "label": "High—you gain energy from people", "scores": { "introvert": 0, "extrovert": 3 } },
+        { "label": "Situational—depends on the vibe", "scores": { "introvert": 2, "extrovert": 1 } },
+        { "label": "Rechargeable quickly with fun plans", "scores": { "introvert": 0, "extrovert": 2 } }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "introvert",
+      "title": "The Deep Diver",
+      "subtitle": "Reflective · Focused · Intentional",
+      "dominantTrait": "introvert",
+      "description": "You recharge in quiet and bring depth, clarity, and careful observation. Your best ideas often arrive when the noise fades.",
+      "strengths": ["Deep focus", "Thoughtful decisions", "Strong listening", "Independent problem solving"],
+      "weaknesses": ["May seem distant when overwhelmed", "Can overthink before acting", "Large crowds can drain you fast"],
+      "suggestions": ["Writer, researcher, designer, engineer, analyst", "Protect calendar blocks for focus", "Share thinking earlier with trusted people"]
+    },
+    {
+      "id": "extrovert",
+      "title": "The Social Spark",
+      "subtitle": "Expressive · Energizing · Connected",
+      "dominantTrait": "extrovert",
+      "description": "You light up around people and turn ideas into momentum. Collaboration and conversation help you think clearly and feel alive.",
+      "strengths": ["Confidence in groups", "Networking and morale", "Fast iteration through dialogue", "Adaptability"],
+      "weaknesses": ["May rush reflection", "Can overlook solo deep work", "Silence might feel uncomfortable at first"],
+      "suggestions": ["Sales, teaching, event roles, community building", "Schedule reflection checkpoints", "Pair social time with a simple wind-down ritual"]
+    }
+  ]
+}

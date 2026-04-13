@@ -1,0 +1,127 @@
+{
+  "id": "emotional_intelligence",
+  "title": "Emotional Intelligence",
+  "subtitle": "Awareness, empathy, and regulation",
+  "iconName": "favorite_outline",
+  "accentHue": 330.0,
+  "scoringMode": "score_band",
+  "scoreMetricKey": "eq",
+  "tieBreakerOrder": [],
+  "questions": [
+    {
+      "id": "eq1",
+      "text": "When someone criticizes you, your first instinct is…",
+      "options": [
+        { "label": "Pause, name the feeling, then respond calmly", "scores": { "eq": 4 } },
+        { "label": "Get defensive, then reflect later", "scores": { "eq": 1 } },
+        { "label": "Ask questions to understand their intent", "scores": { "eq": 3 } },
+        { "label": "Shut down or withdraw quickly", "scores": { "eq": 0 } }
+      ]
+    },
+    {
+      "id": "eq2",
+      "text": "You notice a teammate is unusually quiet. You…",
+      "options": [
+        { "label": "Check in privately with curiosity", "scores": { "eq": 4 } },
+        { "label": "Assume they need space and wait", "scores": { "eq": 2 } },
+        { "label": "Make a joke to lighten the mood", "scores": { "eq": 1 } },
+        { "label": "Ignore it—it's not your business", "scores": { "eq": 0 } }
+      ]
+    },
+    {
+      "id": "eq3",
+      "text": "When you're overwhelmed, you typically…",
+      "options": [
+        { "label": "Label emotions and choose a small next step", "scores": { "eq": 4 } },
+        { "label": "Vent to someone you trust", "scores": { "eq": 2 } },
+        { "label": "Push through until you crash", "scores": { "eq": 0 } },
+        { "label": "Distract yourself until it passes", "scores": { "eq": 1 } }
+      ]
+    },
+    {
+      "id": "eq4",
+      "text": "During conflict, you aim to…",
+      "options": [
+        { "label": "Understand needs on both sides", "scores": { "eq": 4 } },
+        { "label": "Win the argument with facts", "scores": { "eq": 1 } },
+        { "label": "Keep peace even if issues linger", "scores": { "eq": 2 } },
+        { "label": "Avoid the conversation entirely", "scores": { "eq": 0 } }
+      ]
+    },
+    {
+      "id": "eq5",
+      "text": "You can tell when your mood affects others…",
+      "options": [
+        { "label": "Often—and you adjust intentionally", "scores": { "eq": 4 } },
+        { "label": "Sometimes, after someone mentions it", "scores": { "eq": 2 } },
+        { "label": "Rarely—you focus on your own tasks", "scores": { "eq": 1 } },
+        { "label": "Not really—people should manage themselves", "scores": { "eq": 0 } }
+      ]
+    },
+    {
+      "id": "eq6",
+      "text": "Feedback that hurts still contains truth. You…",
+      "options": [
+        { "label": "Extract lessons without self-attack", "scores": { "eq": 4 } },
+        { "label": "Feel bad, then improve quietly", "scores": { "eq": 2 } },
+        { "label": "Dismiss it if the delivery was rude", "scores": { "eq": 1 } },
+        { "label": "Hold a grudge and disengage", "scores": { "eq": 0 } }
+      ]
+    },
+    {
+      "id": "eq7",
+      "text": "You read nonverbal cues (tone, posture)…",
+      "options": [
+        { "label": "Easily—and you adapt your approach", "scores": { "eq": 4 } },
+        { "label": "Okay in close relationships", "scores": { "eq": 2 } },
+        { "label": "Only when it's obvious", "scores": { "eq": 1 } },
+        { "label": "Not confidently—you prefer direct words", "scores": { "eq": 0 } }
+      ]
+    },
+    {
+      "id": "eq8",
+      "text": "Your empathy shows up as…",
+      "options": [
+        { "label": "Validation + helpful boundaries", "scores": { "eq": 4 } },
+        { "label": "Trying to fix everything for people", "scores": { "eq": 2 } },
+        { "label": "Practical advice, even if unsolicited", "scores": { "eq": 1 } },
+        { "label": "Keeping emotions separate from work", "scores": { "eq": 0 } }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "eq_emerging",
+      "title": "The Groundbreaker",
+      "subtitle": "EI foundation in motion",
+      "minScore": 0,
+      "maxScore": 14,
+      "description": "You're honest about stress and learning. Small habits—naming feelings, asking one curious question—will compound fast.",
+      "strengths": ["Authenticity", "Room to grow", "Directness"],
+      "weaknesses": ["Signals may be harder to read", "Regulation under pressure", "Conflict avoidance or sharpness"],
+      "suggestions": ["Daily 2-minute mood check-in", "Practice 'tell me more' in tense chats", "Try journaling after hard days"]
+    },
+    {
+      "id": "eq_balanced",
+      "title": "The Harmonizer",
+      "subtitle": "Steady emotional skill",
+      "minScore": 15,
+      "maxScore": 22,
+      "description": "You balance empathy with practicality. You can stabilize teams and still protect your energy when you choose to.",
+      "strengths": ["Social awareness", "Decent self-regulation", "Adaptable communication"],
+      "weaknesses": ["May absorb others' stress", "Inconsistent boundaries when busy"],
+      "suggestions": ["Mentor others informally", "Use a simple boundary script", "Celebrate small repair moments after conflict"]
+    },
+    {
+      "id": "eq_high",
+      "title": "The Empathic Leader",
+      "subtitle": "High emotional fluency",
+      "minScore": 23,
+      "maxScore": 40,
+      "description": "You notice nuance, regulate well, and help others feel seen—without losing direction.",
+      "strengths": ["Empathy with boundaries", "Conflict repair", "Mood leadership", "Perspective taking"],
+      "weaknesses": ["Risk of emotional labor fatigue", "May expect others to match your skill"],
+      "suggestions": ["Coach, facilitator, people leadership paths", "Schedule recovery after intense days", "Teach frameworks to scale your impact"]
+    }
+  ]
+}

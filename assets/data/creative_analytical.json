@@ -1,0 +1,113 @@
+{
+  "id": "creative_analytical",
+  "title": "Creative vs Analytical",
+  "subtitle": "How your mind prefers to work",
+  "iconName": "auto_awesome",
+  "accentHue": 188.0,
+  "scoringMode": "dominant_trait",
+  "tieBreakerOrder": ["creative", "analytical"],
+  "questions": [
+    {
+      "id": "ca1",
+      "text": "When you start a project, you reach for…",
+      "options": [
+        { "label": "Moodboards, metaphors, and rough sketches", "scores": { "creative": 3, "analytical": 0 } },
+        { "label": "Data, constraints, and a structured outline", "scores": { "creative": 0, "analytical": 3 } },
+        { "label": "A mix—structure first, then play", "scores": { "creative": 1, "analytical": 2 } },
+        { "label": "Play first, then organize", "scores": { "creative": 2, "analytical": 1 } }
+      ]
+    },
+    {
+      "id": "ca2",
+      "text": "You trust decisions more when they are backed by…",
+      "options": [
+        { "label": "Intuition, taste, and narrative fit", "scores": { "creative": 3, "analytical": 0 } },
+        { "label": "Evidence, models, and repeatable tests", "scores": { "creative": 0, "analytical": 3 } },
+        { "label": "Peer feedback and iteration", "scores": { "creative": 2, "analytical": 1 } },
+        { "label": "Benchmarks and historical patterns", "scores": { "creative": 0, "analytical": 2 } }
+      ]
+    },
+    {
+      "id": "ca3",
+      "text": "Your notebooks or files look like…",
+      "options": [
+        { "label": "Scattered sparks—ideas everywhere", "scores": { "creative": 3, "analytical": 0 } },
+        { "label": "Folders, tags, and clean taxonomies", "scores": { "creative": 0, "analytical": 3 } },
+        { "label": "Organized chaos you understand", "scores": { "creative": 2, "analytical": 1 } },
+        { "label": "Templates with occasional doodles", "scores": { "creative": 1, "analytical": 2 } }
+      ]
+    },
+    {
+      "id": "ca4",
+      "text": "You enjoy problems that feel…",
+      "options": [
+        { "label": "Open-ended with many possible forms", "scores": { "creative": 3, "analytical": 0 } },
+        { "label": "Precise with a right answer", "scores": { "creative": 0, "analytical": 3 } },
+        { "label": "Balanced—some rules, some freedom", "scores": { "creative": 1, "analytical": 2 } },
+        { "label": "Like puzzles with hidden patterns", "scores": { "creative": 2, "analytical": 1 } }
+      ]
+    },
+    {
+      "id": "ca5",
+      "text": "Deadlines make you…",
+      "options": [
+        { "label": "More inventive—you love constraints", "scores": { "creative": 3, "analytical": 0 } },
+        { "label": "More systematic—you plan backwards", "scores": { "creative": 0, "analytical": 3 } },
+        { "label": "A bit of both depending on stakes", "scores": { "creative": 1, "analytical": 2 } },
+        { "label": "Energized if you can reshape the deliverable", "scores": { "creative": 2, "analytical": 1 } }
+      ]
+    },
+    {
+      "id": "ca6",
+      "text": "You'd rather spend an hour…",
+      "options": [
+        { "label": "Exploring wild ideas without judgment", "scores": { "creative": 3, "analytical": 0 } },
+        { "label": "Debugging or optimizing something concrete", "scores": { "creative": 0, "analytical": 3 } },
+        { "label": "Workshopping with others", "scores": { "creative": 2, "analytical": 1 } },
+        { "label": "Reading a technical breakdown", "scores": { "creative": 0, "analytical": 2 } }
+      ]
+    },
+    {
+      "id": "ca7",
+      "text": "Ambiguity feels…",
+      "options": [
+        { "label": "Exciting—room to invent", "scores": { "creative": 3, "analytical": 0 } },
+        { "label": "Stressful until defined", "scores": { "creative": 0, "analytical": 3 } },
+        { "label": "Fine if there's a north star", "scores": { "creative": 1, "analytical": 2 } },
+        { "label": "Like clay—fun if you can shape it", "scores": { "creative": 2, "analytical": 1 } }
+      ]
+    },
+    {
+      "id": "ca8",
+      "text": "People describe your thinking as…",
+      "options": [
+        { "label": "Imaginative and surprising", "scores": { "creative": 3, "analytical": 0 } },
+        { "label": "Logical and rigorous", "scores": { "creative": 0, "analytical": 3 } },
+        { "label": "Practical with flair", "scores": { "creative": 2, "analytical": 1 } },
+        { "label": "Structured but original", "scores": { "creative": 1, "analytical": 2 } }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "creative",
+      "title": "The Synthesizer",
+      "subtitle": "Novelty · Metaphor · Expression",
+      "dominantTrait": "creative",
+      "description": "You think in possibilities. You connect distant ideas and make experiences feel alive and memorable.",
+      "strengths": ["Idea generation", "Story and aesthetics", "Adaptability", "Pattern breaking"],
+      "weaknesses": ["May resist repetitive detail", "Scattered focus without constraints", "Hard to explain process"],
+      "suggestions": ["Design, content, product discovery, marketing", "Use timeboxed diverge/converge", "Partner with analysts for validation"]
+    },
+    {
+      "id": "analytical",
+      "title": "The Analyst",
+      "subtitle": "Precision · Proof · Structure",
+      "dominantTrait": "analytical",
+      "description": "You think in systems. You reduce noise, test assumptions, and make complexity understandable.",
+      "strengths": ["Critical thinking", "Consistency", "Forecasting risk", "Clear communication of logic"],
+      "weaknesses": ["Analysis paralysis", "Underestimating intuition", "Can feel rigid in brainstorms"],
+      "suggestions": ["Data, engineering, finance, research", "Set decision deadlines", "Invite creative sessions for option expansion"]
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "id": "leadership_style",
+  "title": "Leadership Style",
+  "subtitle": "How you guide and inspire",
+  "iconName": "military_tech",
+  "accentHue": 38.0,
+  "scoringMode": "dominant_trait",
+  "tieBreakerOrder": ["visionary", "coach", "commander", "democrat"],
+  "questions": [
+    {
+      "id": "ls1",
+      "text": "Your team is stuck. You lead by…",
+      "options": [
+        { "label": "Painting the future story and why it matters", "scores": { "visionary": 3, "coach": 0, "commander": 0, "democrat": 0 } },
+        { "label": "1:1s, skill building, removing fears", "scores": { "visionary": 0, "coach": 3, "commander": 0, "democrat": 0 } },
+        { "label": "Setting clear orders, owners, and deadlines", "scores": { "visionary": 0, "coach": 0, "commander": 3, "democrat": 0 } },
+        { "label": "Facilitating a group decision with input", "scores": { "visionary": 0, "coach": 0, "commander": 0, "democrat": 3 } }
+      ]
+    },
+    {
+      "id": "ls2",
+      "text": "Success for you sounds like…",
+      "options": [
+        { "label": "A bold direction people believe in", "scores": { "visionary": 3, "coach": 0, "commander": 0, "democrat": 0 } },
+        { "label": "People growing faster than the project", "scores": { "visionary": 0, "coach": 3, "commander": 0, "democrat": 0 } },
+        { "label": "Flawless execution under pressure", "scores": { "visionary": 0, "coach": 0, "commander": 3, "democrat": 0 } },
+        { "label": "Fair process and shared ownership", "scores": { "visionary": 0, "coach": 0, "commander": 0, "democrat": 3 } }
+      ]
+    },
+    {
+      "id": "ls3",
+      "text": "When priorities clash, you…",
+      "options": [
+        { "label": "Re-anchor the mission and tradeoffs", "scores": { "visionary": 3, "coach": 0, "commander": 0, "democrat": 0 } },
+        { "label": "Support individuals through the change", "scores": { "visionary": 0, "coach": 3, "commander": 0, "democrat": 0 } },
+        { "label": "Decide quickly and move", "scores": { "visionary": 0, "coach": 0, "commander": 3, "democrat": 0 } },
+        { "label": "Run a structured discussion to align", "scores": { "visionary": 0, "coach": 0, "commander": 0, "democrat": 3 } }
+      ]
+    },
+    {
+      "id": "ls4",
+      "text": "You give feedback…",
+      "options": [
+        { "label": "Framed as impact on the vision", "scores": { "visionary": 3, "coach": 0, "commander": 0, "democrat": 0 } },
+        { "label": "As growth-focused coaching", "scores": { "visionary": 0, "coach": 3, "commander": 0, "democrat": 0 } },
+        { "label": "Directly, clearly, and fast", "scores": { "visionary": 0, "coach": 0, "commander": 3, "democrat": 0 } },
+        { "label": "With context gathered from the team", "scores": { "visionary": 0, "coach": 0, "commander": 0, "democrat": 3 } }
+      ]
+    },
+    {
+      "id": "ls5",
+      "text": "Your meetings tend to be…",
+      "options": [
+        { "label": "Inspiring + directional", "scores": { "visionary": 3, "coach": 0, "commander": 0, "democrat": 0 } },
+        { "label": "Safe for honesty and development", "scores": { "visionary": 0, "coach": 3, "commander": 0, "democrat": 0 } },
+        { "label": "Short, crisp, action-oriented", "scores": { "visionary": 0, "coach": 0, "commander": 3, "democrat": 0 } },
+        { "label": "Inclusive with visible consensus", "scores": { "visionary": 0, "coach": 0, "commander": 0, "democrat": 3 } }
+      ]
+    },
+    {
+      "id": "ls6",
+      "text": "Under uncertainty, you trust…",
+      "options": [
+        { "label": "A compelling narrative + experiments", "scores": { "visionary": 3, "coach": 0, "commander": 0, "democrat": 0 } },
+        { "label": "People's potential to adapt", "scores": { "visionary": 0, "coach": 3, "commander": 0, "democrat": 0 } },
+        { "label": "Discipline, plans, and accountability", "scores": { "visionary": 0, "coach": 0, "commander": 3, "democrat": 0 } },
+        { "label": "Shared intelligence and debate", "scores": { "visionary": 0, "coach": 0, "commander": 0, "democrat": 3 } }
+      ]
+    },
+    {
+      "id": "ls7",
+      "text": "You measure leadership success by…",
+      "options": [
+        { "label": "Momentum toward a meaningful future", "scores": { "visionary": 3, "coach": 0, "commander": 0, "democrat": 0 } },
+        { "label": "Confidence and capability on the team", "scores": { "visionary": 0, "coach": 3, "commander": 0, "democrat": 0 } },
+        { "label": "Results delivered on time", "scores": { "visionary": 0, "coach": 0, "commander": 3, "democrat": 0 } },
+        { "label": "Trust, fairness, and participation", "scores": { "visionary": 0, "coach": 0, "commander": 0, "democrat": 3 } }
+      ]
+    },
+    {
+      "id": "ls8",
+      "text": "Your shadow risk as a leader is…",
+      "options": [
+        { "label": "Over-romanticizing the vision vs details", "scores": { "visionary": 3, "coach": 0, "commander": 0, "democrat": 0 } },
+        { "label": "Avoiding hard calls to protect feelings", "scores": { "visionary": 0, "coach": 3, "commander": 0, "democrat": 0 } },
+        { "label": "Intensity that feels controlling", "scores": { "visionary": 0, "coach": 0, "commander": 3, "democrat": 0 } },
+        { "label": "Slow decisions while seeking consensus", "scores": { "visionary": 0, "coach": 0, "commander": 0, "democrat": 3 } }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "visionary",
+      "title": "The Visionary",
+      "subtitle": "Inspire · Mobilize · Set direction",
+      "dominantTrait": "visionary",
+      "description": "You lead with meaning. You help people endure hard work because they believe in what's on the other side.",
+      "strengths": ["Narrative power", "Ambition", "Change leadership", "Big-picture synthesis"],
+      "weaknesses": ["Details can slip", "Impatience with slow buy-in", "Risk of hype without proof"],
+      "suggestions": ["Founder, creative director, transformation roles", "Pair with operators", "Ship milestones visibly"]
+    },
+    {
+      "id": "coach",
+      "title": "The Coach",
+      "subtitle": "Develop · Empower · Unlock people",
+      "dominantTrait": "coach",
+      "description": "You grow capability. People perform better because you make learning safe and expectations clear.",
+      "strengths": ["Feedback culture", "Empathy", "Talent spotting", "Patience"],
+      "weaknesses": ["Hard decisions may delay", "Emotional load", "Avoidance of conflict"],
+      "suggestions": ["People manager, mentor-heavy IC track, L&D", "Practice decisive timelines", "Use frameworks for fairness"]
+    },
+    {
+      "id": "commander",
+      "title": "The Commander",
+      "subtitle": "Execute · Protect · Deliver",
+      "dominantTrait": "commander",
+      "description": "You create clarity in chaos. Teams move because ownership and standards are unmistakable.",
+      "strengths": ["Decisiveness", "Accountability", "Crisis performance", "Efficiency"],
+      "weaknesses": ["Can feel blunt", "May miss morale signals", "Risk of burnout culture"],
+      "suggestions": ["Ops lead, PMO, turnaround roles", "Celebrate wins loudly", "Invite dissent in structured forums"]
+    },
+    {
+      "id": "democrat",
+      "title": "The Democrat",
+      "subtitle": "Facilitate · Align · Share power",
+      "dominantTrait": "democrat",
+      "description": "You build legitimacy. People commit because the process felt fair and their voice mattered.",
+      "strengths": ["Inclusion", "Listening", "Consensus building", "Trust"],
+      "weaknesses": ["Slower decisions", "Ambiguity if values clash", "Conflict avoidance"],
+      "suggestions": ["Facilitator, community lead, servant leadership roles", "Define decision rights upfront", "Use time-boxed debates"]
+    }
+  ]
+}

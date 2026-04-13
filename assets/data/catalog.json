@@ -1,0 +1,9 @@
+{
+  "files": [
+    "assets/data/introvert_extrovert.json",
+    "assets/data/career_personality.json",
+    "assets/data/emotional_intelligence.json",
+    "assets/data/leadership_style.json",
+    "assets/data/creative_analytical.json"
+  ]
+}

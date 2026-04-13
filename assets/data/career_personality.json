@@ -1,0 +1,133 @@
+{
+  "id": "career_personality",
+  "title": "Career Personality",
+  "subtitle": "How you create value at work",
+  "iconName": "work_outline",
+  "accentHue": 210.0,
+  "scoringMode": "dominant_trait",
+  "tieBreakerOrder": ["builder", "creator", "connector", "strategist"],
+  "questions": [
+    {
+      "id": "cp1",
+      "text": "You feel most proud when you…",
+      "options": [
+        { "label": "Ship something reliable that just works", "scores": { "builder": 3, "creator": 0, "connector": 0, "strategist": 0 } },
+        { "label": "Invent a fresh approach or aesthetic", "scores": { "builder": 0, "creator": 3, "connector": 0, "strategist": 0 } },
+        { "label": "Align people and unblock teamwork", "scores": { "builder": 0, "creator": 0, "connector": 3, "strategist": 0 } },
+        { "label": "Spot the pattern and set the plan", "scores": { "builder": 0, "creator": 0, "connector": 0, "strategist": 3 } }
+      ]
+    },
+    {
+      "id": "cp2",
+      "text": "Your favorite tasks usually involve…",
+      "options": [
+        { "label": "Execution, systems, and quality control", "scores": { "builder": 3, "creator": 0, "connector": 0, "strategist": 0 } },
+        { "label": "Ideation, storytelling, or craft", "scores": { "builder": 0, "creator": 3, "connector": 0, "strategist": 0 } },
+        { "label": "Coaching, customers, or culture", "scores": { "builder": 0, "creator": 0, "connector": 3, "strategist": 0 } },
+        { "label": "Priorities, tradeoffs, and roadmaps", "scores": { "builder": 0, "creator": 0, "connector": 0, "strategist": 3 } }
+      ]
+    },
+    {
+      "id": "cp3",
+      "text": "When a project is messy, you instinctively…",
+      "options": [
+        { "label": "Stabilize the process and fix bottlenecks", "scores": { "builder": 3, "creator": 0, "connector": 0, "strategist": 0 } },
+        { "label": "Prototype something new to break the logjam", "scores": { "builder": 0, "creator": 3, "connector": 0, "strategist": 0 } },
+        { "label": "Talk to stakeholders and rebuild trust", "scores": { "builder": 0, "creator": 0, "connector": 3, "strategist": 0 } },
+        { "label": "Reframe goals and simplify the plan", "scores": { "builder": 0, "creator": 0, "connector": 0, "strategist": 3 } }
+      ]
+    },
+    {
+      "id": "cp4",
+      "text": "You learn best by…",
+      "options": [
+        { "label": "Doing reps and refining technique", "scores": { "builder": 3, "creator": 0, "connector": 0, "strategist": 0 } },
+        { "label": "Experimenting and iterating wildly", "scores": { "builder": 0, "creator": 3, "connector": 0, "strategist": 0 } },
+        { "label": "Discussing with mentors and peers", "scores": { "builder": 0, "creator": 0, "connector": 3, "strategist": 0 } },
+        { "label": "Mapping frameworks and mental models", "scores": { "builder": 0, "creator": 0, "connector": 0, "strategist": 3 } }
+      ]
+    },
+    {
+      "id": "cp5",
+      "text": "A great workplace for you has…",
+      "options": [
+        { "label": "Clear standards and craftsmanship", "scores": { "builder": 3, "creator": 0, "connector": 0, "strategist": 0 } },
+        { "label": "Room to explore and express originality", "scores": { "builder": 0, "creator": 3, "connector": 0, "strategist": 0 } },
+        { "label": "Collaboration, empathy, and community", "scores": { "builder": 0, "creator": 0, "connector": 3, "strategist": 0 } },
+        { "label": "Strategic clarity and meaningful impact", "scores": { "builder": 0, "creator": 0, "connector": 0, "strategist": 3 } }
+      ]
+    },
+    {
+      "id": "cp6",
+      "text": "Under pressure, you default to…",
+      "options": [
+        { "label": "Checklists, quality, and steady progress", "scores": { "builder": 3, "creator": 0, "connector": 0, "strategist": 0 } },
+        { "label": "Creative shortcuts and bold choices", "scores": { "builder": 0, "creator": 3, "connector": 0, "strategist": 0 } },
+        { "label": "Rallying people and clarifying roles", "scores": { "builder": 0, "creator": 0, "connector": 3, "strategist": 0 } },
+        { "label": "Re-sequencing work to protect outcomes", "scores": { "builder": 0, "creator": 0, "connector": 0, "strategist": 3 } }
+      ]
+    },
+    {
+      "id": "cp7",
+      "text": "You’d rather be recognized for…",
+      "options": [
+        { "label": "Reliability and excellence", "scores": { "builder": 3, "creator": 0, "connector": 0, "strategist": 0 } },
+        { "label": "Innovation and taste", "scores": { "builder": 0, "creator": 3, "connector": 0, "strategist": 0 } },
+        { "label": "Influence and care for people", "scores": { "builder": 0, "creator": 0, "connector": 3, "strategist": 0 } },
+        { "label": "Judgment and direction", "scores": { "builder": 0, "creator": 0, "connector": 0, "strategist": 3 } }
+      ]
+    },
+    {
+      "id": "cp8",
+      "text": "Your dream project ends with…",
+      "options": [
+        { "label": "A polished launch people trust", "scores": { "builder": 3, "creator": 0, "connector": 0, "strategist": 0 } },
+        { "label": "Something the world hasn’t seen before", "scores": { "builder": 0, "creator": 3, "connector": 0, "strategist": 0 } },
+        { "label": "A team that feels proud and seen", "scores": { "builder": 0, "creator": 0, "connector": 3, "strategist": 0 } },
+        { "label": "A clear win against a hard problem", "scores": { "builder": 0, "creator": 0, "connector": 0, "strategist": 3 } }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "builder",
+      "title": "The Builder",
+      "subtitle": "Ship · Stabilize · Elevate quality",
+      "dominantTrait": "builder",
+      "description": "You turn plans into reality with craft and consistency. You raise the bar for execution and make teams dependable.",
+      "strengths": ["Operational excellence", "Attention to detail", "Ownership", "Calm execution"],
+      "weaknesses": ["May resist ambiguity", "Perfectionism can slow shipping", "Can undervalue pure exploration"],
+      "suggestions": ["Engineering, operations, QA, product delivery", "Timebox polish", "Pair with creators for early prototypes"]
+    },
+    {
+      "id": "creator",
+      "title": "The Creator",
+      "subtitle": "Imagine · Design · Make it new",
+      "dominantTrait": "creator",
+      "description": "You see possibilities and translate them into experiences. You help organizations stay fresh and human.",
+      "strengths": ["Originality", "Storytelling", "Visual and conceptual thinking", "Adaptability"],
+      "weaknesses": ["May struggle with repetitive maintenance", "Can chase novelty", "Sometimes needs stronger constraints"],
+      "suggestions": ["Design, content, marketing, product discovery", "Use deadlines as creative constraints", "Collaborate with builders for launch"]
+    },
+    {
+      "id": "connector",
+      "title": "The Connector",
+      "subtitle": "Align · Support · Grow people",
+      "dominantTrait": "connector",
+      "description": "You make collaboration work. You translate between humans, reduce friction, and build trust at scale.",
+      "strengths": ["Empathy", "Communication", "Conflict navigation", "Customer intuition"],
+      "weaknesses": ["May avoid hard tradeoffs", "Can overcommit socially", "Might postpone solo deep work"],
+      "suggestions": ["People ops, customer success, community, HR", "Block focus time weekly", "Practice saying no kindly"]
+    },
+    {
+      "id": "strategist",
+      "title": "The Strategist",
+      "subtitle": "Prioritize · Position · Win",
+      "dominantTrait": "strategist",
+      "description": "You connect dots across time and teams. You clarify direction, reduce risk, and make complex decisions feel simple.",
+      "strengths": ["Systems thinking", "Decision quality", "Forecasting", "Clarity under uncertainty"],
+      "weaknesses": ["Can overanalyze", "May feel distant from hands-on craft", "Impatience with inefficiency"],
+      "suggestions": ["Product strategy, consulting, founder path, PM", "Visit the frontline regularly", "Celebrate small shipped wins"]
+    }
+  ]
+}
