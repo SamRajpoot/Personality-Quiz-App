@@ -299,7 +299,6 @@ class _ResultScreenState extends ConsumerState<ResultScreen> {
     required double topScore,
     required double totalPoints,
   }) {
-    final scheme = Theme.of(context).colorScheme;
     return Wrap(
       spacing: 8,
       runSpacing: 8,
