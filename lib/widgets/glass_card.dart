@@ -18,20 +18,25 @@ class GlassCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
     final isDark = Theme.of(context).brightness == Brightness.dark;
-    final border = isDark ? Colors.white.withValues(alpha: 0.14) : Colors.black.withValues(alpha: 0.08);
-    final fill = isDark ? scheme.surfaceContainer : scheme.surface;
+    final border = isDark ? scheme.primary.withValues(alpha: 0.18) : scheme.primary.withValues(alpha: 0.14);
+    final top = Color.lerp(scheme.surface, scheme.primary, isDark ? 0.12 : 0.06) ?? scheme.surface;
+    final bottom = Color.lerp(scheme.surfaceContainer, scheme.secondary, isDark ? 0.1 : 0.05) ?? scheme.surfaceContainer;
     final card = ClipRRect(
       borderRadius: borderRadius,
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: fill,
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [top, bottom],
+          ),
           borderRadius: borderRadius,
           border: Border.all(color: border),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withValues(alpha: isDark ? 0.28 : 0.06),
-              blurRadius: 16,
-              offset: const Offset(0, 8),
+              color: scheme.primary.withValues(alpha: isDark ? 0.2 : 0.1),
+              blurRadius: 20,
+              offset: const Offset(0, 10),
             ),
           ],
         ),
@@ -47,8 +52,8 @@ class GlassCard extends StatelessWidget {
       child: InkWell(
         borderRadius: borderRadius,
         onTap: onTap,
-        splashColor: Colors.black.withValues(alpha: 0.08),
-        highlightColor: Colors.black.withValues(alpha: 0.04),
+        splashColor: scheme.primary.withValues(alpha: 0.12),
+        highlightColor: scheme.primary.withValues(alpha: 0.06),
         child: card,
       ),
     );

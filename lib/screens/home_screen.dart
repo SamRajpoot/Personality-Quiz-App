@@ -81,6 +81,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               return LayoutBuilder(
                 builder: (context, c) {
                   final cross = c.maxWidth >= 720 ? 3 : 2;
+                  final aspect = cross == 3 ? 1.15 : 0.92;
                   return CustomScrollView(
                     physics: const BouncingScrollPhysics(),
                     slivers: [
@@ -91,7 +92,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                             crossAxisCount: cross,
                             mainAxisSpacing: 14,
                             crossAxisSpacing: 14,
-                            childAspectRatio: 0.82,
+                            childAspectRatio: aspect,
                           ),
                           delegate: SliverChildBuilderDelegate(
                             (context, index) {
@@ -156,6 +157,7 @@ class _QuizCategoryTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
+    final icon = iconFromName(quiz.iconName);
     return GlassCard(
       onTap: onOpen,
       padding: const EdgeInsets.all(16),
@@ -165,13 +167,15 @@ class _QuizCategoryTile extends StatelessWidget {
           Row(
             children: [
               Container(
-                padding: const EdgeInsets.all(10),
+                width: 40,
+                height: 40,
+                alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
+                  borderRadius: BorderRadius.circular(12),
                   color: scheme.surfaceContainerHighest,
                   border: Border.all(color: scheme.outline.withValues(alpha: 0.18)),
                 ),
-                child: Icon(iconFromName(quiz.iconName), color: scheme.onSurface),
+                child: Icon(icon, size: 20, color: scheme.onSurface),
               ),
               const Spacer(),
               IconButton.filledTonal(
@@ -181,7 +185,17 @@ class _QuizCategoryTile extends StatelessWidget {
               ),
             ],
           ),
-          const Spacer(),
+          const SizedBox(height: 16),
+          Expanded(
+            child: Center(
+              child: Icon(
+                icon,
+                size: 56,
+                color: scheme.onSurface.withValues(alpha: 0.12),
+              ),
+            ),
+          ),
+          const SizedBox(height: 8),
           Text(
             quiz.title,
             maxLines: 2,
@@ -198,13 +212,30 @@ class _QuizCategoryTile extends StatelessWidget {
                   height: 1.25,
                 ),
           ),
-          const SizedBox(height: 10),
-          Text(
-            '${quiz.questions.length} questions',
-            style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                  color: scheme.onSurface.withValues(alpha: 0.68),
-                  fontWeight: FontWeight.w700,
+          const SizedBox(height: 12),
+          Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(999),
+                  color: scheme.surfaceContainerHighest,
                 ),
+                child: Text(
+                  '${quiz.questions.length} questions',
+                  style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                        color: scheme.onSurface.withValues(alpha: 0.8),
+                        fontWeight: FontWeight.w700,
+                      ),
+                ),
+              ),
+              const Spacer(),
+              Icon(
+                Icons.arrow_forward_rounded,
+                size: 20,
+                color: scheme.onSurface.withValues(alpha: 0.6),
+              ),
+            ],
           ),
         ],
       ),

@@ -90,8 +90,8 @@ class ResultShareCard extends StatelessWidget {
           const SizedBox(height: 8),
           Text(
             resultTitle,
-            style: const TextStyle(
-              color: Colors.black,
+            style: TextStyle(
+              color: isDark ? Colors.white : Colors.black,
               fontSize: 22,
               fontWeight: FontWeight.w800,
               height: 1.1,

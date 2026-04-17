@@ -42,11 +42,22 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
+    final bg = Theme.of(context).scaffoldBackgroundColor;
     return Scaffold(
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        color: Theme.of(context).scaffoldBackgroundColor,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              bg,
+              Color.lerp(bg, scheme.primary, 0.16) ?? bg,
+              Color.lerp(bg, scheme.secondary, 0.12) ?? bg,
+            ],
+          ),
+        ),
         child: SafeArea(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

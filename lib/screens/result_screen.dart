@@ -28,6 +28,7 @@ class ResultScreen extends ConsumerStatefulWidget {
 class _ResultScreenState extends ConsumerState<ResultScreen> {
   late final ConfettiController _confetti;
   final _shareBoundaryKey = GlobalKey();
+  bool _isSharingImage = false;
 
   late final Map<String, double> _scores;
   late final QuizResultModel _result;
@@ -50,23 +51,37 @@ class _ResultScreenState extends ConsumerState<ResultScreen> {
   }
 
   Future<void> _shareText() async {
-    final settings = ref.read(settingsProvider).value;
-    if (settings != null) {
-      await playTapFeedback(soundEnabled: settings.soundEnabled, hapticsEnabled: settings.hapticsEnabled);
+    try {
+      final settings = ref.read(settingsProvider).value;
+      if (settings != null) {
+        await playTapFeedback(soundEnabled: settings.soundEnabled, hapticsEnabled: settings.hapticsEnabled);
+      }
+      final text = _shareCaption();
+      await ShareService().shareText(text);
+    } catch (e) {
+      _showSnack('Could not share text right now.');
     }
-    final text = _shareCaption();
-    await ShareService().shareText(text);
   }
 
   Future<void> _shareImage() async {
-    final settings = ref.read(settingsProvider).value;
-    if (settings != null) {
-      await playTapFeedback(soundEnabled: settings.soundEnabled, hapticsEnabled: settings.hapticsEnabled);
+    if (_isSharingImage) return;
+    setState(() => _isSharingImage = true);
+    try {
+      final settings = ref.read(settingsProvider).value;
+      if (settings != null) {
+        await playTapFeedback(soundEnabled: settings.soundEnabled, hapticsEnabled: settings.hapticsEnabled);
+      }
+      await ShareService().sharePngFromBoundary(
+        boundaryKey: _shareBoundaryKey,
+        text: _shareCaption(),
+      );
+    } catch (e) {
+      _showSnack('Could not share image. Please try again.');
+    } finally {
+      if (mounted) {
+        setState(() => _isSharingImage = false);
+      }
     }
-    await ShareService().sharePngFromBoundary(
-      boundaryKey: _shareBoundaryKey,
-      text: _shareCaption(),
-    );
   }
 
   String _shareCaption() {
@@ -86,9 +101,20 @@ class _ResultScreenState extends ConsumerState<ResultScreen> {
     Navigator.of(context).popUntil((route) => route.isFirst);
   }
 
+  void _showSnack(String message) {
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
+  }
+
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
+    final answered = widget.answers.length;
+    final totalQuestions = widget.quiz.questions.length;
+    final topEntry = _scores.entries.isEmpty
+        ? null
+        : _scores.entries.reduce((a, b) => a.value >= b.value ? a : b);
+    final totalPoints = _scores.values.fold<double>(0, (sum, v) => sum + v);
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -133,6 +159,15 @@ class _ResultScreenState extends ConsumerState<ResultScreen> {
                             _result.description,
                             style: Theme.of(context).textTheme.bodyLarge?.copyWith(height: 1.35),
                           ),
+                          const SizedBox(height: 16),
+                          _statsRow(
+                            context,
+                            answered: answered,
+                            totalQuestions: totalQuestions,
+                            topTrait: topEntry?.key ?? 'N/A',
+                            topScore: topEntry?.value ?? 0,
+                            totalPoints: totalPoints,
+                          ),
                         ],
                       ),
                     ),
@@ -152,7 +187,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen> {
                     NeonPrimaryButton(
                       label: 'Share card image',
                       icon: Icons.image_outlined,
-                      onPressed: _shareImage,
+                      onPressed: _isSharingImage ? null : _shareImage,
                     ),
                     const SizedBox(height: 10),
                     OutlinedButton.icon(
@@ -189,14 +224,22 @@ class _ResultScreenState extends ConsumerState<ResultScreen> {
             ),
           ),
           Positioned(
-            left: -4000,
-            top: 0,
-            child: RepaintBoundary(
-              key: _shareBoundaryKey,
-              child: ResultShareCard(
-                quizTitle: widget.quiz.title,
-                resultTitle: _result.title,
-                subtitle: _result.subtitle,
+            right: 8,
+            bottom: 8,
+            child: IgnorePointer(
+              child: ExcludeSemantics(
+                child: Transform.scale(
+                  scale: 0.01,
+                  alignment: Alignment.bottomRight,
+                  child: RepaintBoundary(
+                    key: _shareBoundaryKey,
+                    child: ResultShareCard(
+                      quizTitle: widget.quiz.title,
+                      resultTitle: _result.title,
+                      subtitle: _result.subtitle,
+                    ),
+                  ),
+                ),
               ),
             ),
           ),
@@ -214,11 +257,22 @@ class _ResultScreenState extends ConsumerState<ResultScreen> {
         children: [
           Row(
             children: [
-              Icon(icon, size: 22, color: scheme.onSurface),
+              Container(
+                width: 34,
+                height: 34,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: scheme.secondaryContainer,
+                ),
+                child: Icon(icon, size: 18, color: scheme.onSecondaryContainer),
+              ),
               const SizedBox(width: 8),
               Text(title, style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800)),
             ],
           ),
+          const SizedBox(height: 10),
+          Divider(color: scheme.outline.withValues(alpha: 0.35), height: 1),
           const SizedBox(height: 10),
           ...bullets.map(
             (b) => Padding(
@@ -235,5 +289,68 @@ class _ResultScreenState extends ConsumerState<ResultScreen> {
         ],
       ),
     );
+  }
+
+  Widget _statsRow(
+    BuildContext context, {
+    required int answered,
+    required int totalQuestions,
+    required String topTrait,
+    required double topScore,
+    required double totalPoints,
+  }) {
+    final scheme = Theme.of(context).colorScheme;
+    return Wrap(
+      spacing: 8,
+      runSpacing: 8,
+      children: [
+        _statChip(context, label: 'Answered', value: '$answered/$totalQuestions'),
+        _statChip(context, label: 'Top trait', value: _prettyLabel(topTrait)),
+        _statChip(context, label: 'Score', value: '${topScore.toStringAsFixed(0)} / ${totalPoints.toStringAsFixed(0)}'),
+      ],
+    );
+  }
+
+  Widget _statChip(BuildContext context, {required String label, required String value}) {
+    final scheme = Theme.of(context).colorScheme;
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+      decoration: BoxDecoration(
+        color: scheme.secondaryContainer,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: scheme.outline.withValues(alpha: 0.35)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            label,
+            style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                  color: scheme.onSecondaryContainer.withValues(alpha: 0.75),
+                  fontWeight: FontWeight.w700,
+                ),
+          ),
+          const SizedBox(height: 2),
+          Text(
+            value,
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: scheme.onSecondaryContainer,
+                  fontWeight: FontWeight.w800,
+                ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  String _prettyLabel(String raw) {
+    if (raw.isEmpty) return 'N/A';
+    return raw
+        .replaceAll('_', ' ')
+        .split(' ')
+        .where((p) => p.isNotEmpty)
+        .map((p) => p[0].toUpperCase() + p.substring(1).toLowerCase())
+        .join(' ');
   }
 }
