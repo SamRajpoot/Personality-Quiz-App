@@ -14,16 +14,15 @@ class ShareService {
     required GlobalKey boundaryKey,
     String? text,
   }) async {
-    // Ensure the boundary has had a chance to paint before capture.
-    await WidgetsBinding.instance.endOfFrame;
-    final ctx = boundaryKey.currentContext;
-    if (ctx == null) {
-      throw StateError('Share preview is not ready yet.');
-    }
-    final boundary = ctx.findRenderObject();
-    if (boundary is! RenderRepaintBoundary) {
+    final renderObject = boundaryKey.currentContext?.findRenderObject();
+    if (renderObject is! RenderRepaintBoundary) {
       throw StateError('Share preview could not be prepared.');
     }
+
+    // Ensure the boundary has had a chance to paint before capture.
+    await WidgetsBinding.instance.endOfFrame;
+
+    final boundary = renderObject;
     if (boundary.debugNeedsPaint) {
       await WidgetsBinding.instance.endOfFrame;
     }

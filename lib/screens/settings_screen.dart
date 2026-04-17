@@ -57,22 +57,22 @@ class SettingsScreen extends ConsumerWidget {
                         const SizedBox(height: 12),
                         SegmentedButton<ThemeMode>(
                           style: ButtonStyle(
-                            textStyle: MaterialStateProperty.resolveWith((states) {
+                            textStyle: WidgetStateProperty.resolveWith((states) {
                               return Theme.of(context).textTheme.labelLarge?.copyWith(fontWeight: FontWeight.w700);
                             }),
-                            foregroundColor: MaterialStateProperty.resolveWith((states) {
-                              if (states.contains(MaterialState.selected)) return scheme.onPrimary;
+                            foregroundColor: WidgetStateProperty.resolveWith((states) {
+                              if (states.contains(WidgetState.selected)) return scheme.onPrimary;
                               return scheme.onSurface;
                             }),
-                            backgroundColor: MaterialStateProperty.resolveWith((states) {
-                              if (states.contains(MaterialState.selected)) return scheme.onSurface;
+                            backgroundColor: WidgetStateProperty.resolveWith((states) {
+                              if (states.contains(WidgetState.selected)) return scheme.onSurface;
                               return scheme.surface;
                             }),
-                            side: MaterialStateProperty.resolveWith((states) {
+                            side: WidgetStateProperty.resolveWith((states) {
                               return BorderSide(color: scheme.outline, width: 1);
                             }),
-                            iconColor: MaterialStateProperty.resolveWith((states) {
-                              if (states.contains(MaterialState.selected)) return scheme.onPrimary;
+                            iconColor: WidgetStateProperty.resolveWith((states) {
+                              if (states.contains(WidgetState.selected)) return scheme.onPrimary;
                               return scheme.onSurface;
                             }),
                           ),

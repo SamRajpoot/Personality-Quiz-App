@@ -1,4 +1,4 @@
-package com.example.personalityquiz.personality_quiz_app
+package com.personasphere.quizapp
 
 import io.flutter.embedding.android.FlutterActivity
 

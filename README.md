@@ -42,9 +42,13 @@ Includes unit tests for scoring and a widget smoke test for the quiz screen.
 
 1. **Versioning:** bump `version:` in `pubspec.yaml` (e.g. `1.0.1+2` → name `1.0.1`, build `2`). Optionally mirror `AppConstants.version` / `buildNumber` in `lib/core/app_constants.dart` for the Settings screen label.
 
-2. **Signing (Android):** configure your keystore and `key.properties` per [Flutter Android signing](https://docs.flutter.dev/deployment/android#sign-the-app).
+2. **Application ID (Android):** current production ID is `com.personasphere.quizapp`. If you change it later, update Play Console package setup accordingly.
 
-3. **Build artifacts:**
+3. **Signing (Android):** configure your keystore and `android/key.properties` per [Flutter Android signing](https://docs.flutter.dev/deployment/android#sign-the-app).
+	- Start from `android/key.properties.example`.
+	- Keep `android/key.properties` and your `.jks` file private.
+
+4. **Build artifacts:**
 
 ```bash
 # Debug APK (quick install)
