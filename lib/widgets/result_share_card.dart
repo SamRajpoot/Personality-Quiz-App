@@ -9,18 +9,17 @@ class ResultShareCard extends StatelessWidget {
     required this.quizTitle,
     required this.resultTitle,
     required this.subtitle,
-    required this.accentHue,
   });
 
   final String quizTitle;
   final String resultTitle;
   final String subtitle;
-  final double accentHue;
 
   @override
   Widget build(BuildContext context) {
-    final c1 = HSVColor.fromAHSV(1, accentHue, 0.7, 0.45).toColor();
-    final c2 = HSVColor.fromAHSV(1, (accentHue + 55) % 360, 0.65, 0.55).toColor();
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final bgTop = isDark ? const Color(0xFF0F0F10) : const Color(0xFFFFFFFF);
+    final bgBottom = isDark ? const Color(0xFF1A1A1A) : const Color(0xFFF2F2F2);
     return Container(
       width: 1080 / 3,
       padding: const EdgeInsets.all(22),
@@ -29,16 +28,10 @@ class ResultShareCard extends StatelessWidget {
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [const Color(0xFF0B1020), c1.withValues(alpha: 0.85), c2.withValues(alpha: 0.75)],
+          colors: [bgTop, bgBottom],
         ),
-        border: Border.all(color: Colors.white.withValues(alpha: 0.22)),
-        boxShadow: [
-          BoxShadow(
-            color: c2.withValues(alpha: 0.45),
-            blurRadius: 30,
-            offset: const Offset(0, 16),
-          ),
-        ],
+        border: Border.all(color: isDark ? Colors.white.withValues(alpha: 0.12) : Colors.black.withValues(alpha: 0.08)),
+        boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: isDark ? 0.28 : 0.08), blurRadius: 24, offset: const Offset(0, 14))],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,7 +47,7 @@ class ResultShareCard extends StatelessWidget {
                   height: 44,
                   fit: BoxFit.cover,
                   errorBuilder: (context, error, stackTrace) =>
-                      Icon(Icons.auto_awesome, color: Colors.white.withValues(alpha: 0.9)),
+                      Icon(Icons.auto_awesome, color: isDark ? Colors.white : Colors.black),
                 ),
               ),
               const SizedBox(width: 12),
@@ -65,7 +58,7 @@ class ResultShareCard extends StatelessWidget {
                     Text(
                       AppConstants.appName,
                       style: TextStyle(
-                        color: Colors.white.withValues(alpha: 0.92),
+                        color: isDark ? Colors.white : Colors.black,
                         fontWeight: FontWeight.w800,
                         fontSize: 16,
                         letterSpacing: 0.3,
@@ -74,7 +67,7 @@ class ResultShareCard extends StatelessWidget {
                     Text(
                       AppConstants.appTagline,
                       style: TextStyle(
-                        color: Colors.white.withValues(alpha: 0.65),
+                        color: isDark ? Colors.white.withValues(alpha: 0.72) : Colors.black.withValues(alpha: 0.62),
                         fontSize: 11,
                         fontWeight: FontWeight.w500,
                       ),
@@ -88,7 +81,7 @@ class ResultShareCard extends StatelessWidget {
           Text(
             quizTitle.toUpperCase(),
             style: TextStyle(
-              color: Colors.white.withValues(alpha: 0.55),
+              color: isDark ? Colors.white.withValues(alpha: 0.58) : Colors.black.withValues(alpha: 0.52),
               fontSize: 10,
               letterSpacing: 1.6,
               fontWeight: FontWeight.w700,
@@ -98,7 +91,7 @@ class ResultShareCard extends StatelessWidget {
           Text(
             resultTitle,
             style: const TextStyle(
-              color: Colors.white,
+              color: Colors.black,
               fontSize: 22,
               fontWeight: FontWeight.w800,
               height: 1.1,
@@ -108,7 +101,7 @@ class ResultShareCard extends StatelessWidget {
           Text(
             subtitle,
             style: TextStyle(
-              color: Colors.white.withValues(alpha: 0.78),
+              color: isDark ? Colors.white.withValues(alpha: 0.82) : Colors.black.withValues(alpha: 0.72),
               fontSize: 13,
               height: 1.25,
             ),
@@ -117,14 +110,14 @@ class ResultShareCard extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
             decoration: BoxDecoration(
-              color: Colors.white.withValues(alpha: 0.08),
+              color: isDark ? Colors.white.withValues(alpha: 0.08) : Colors.black.withValues(alpha: 0.04),
               borderRadius: BorderRadius.circular(14),
-              border: Border.all(color: Colors.white.withValues(alpha: 0.14)),
+              border: Border.all(color: isDark ? Colors.white.withValues(alpha: 0.12) : Colors.black.withValues(alpha: 0.08)),
             ),
             child: Text(
               AppConstants.philosophy,
               style: TextStyle(
-                color: Colors.white.withValues(alpha: 0.72),
+                color: isDark ? Colors.white.withValues(alpha: 0.72) : Colors.black.withValues(alpha: 0.66),
                 fontSize: 11,
                 fontStyle: FontStyle.italic,
               ),

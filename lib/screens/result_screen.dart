@@ -101,7 +101,6 @@ class _ResultScreenState extends ConsumerState<ResultScreen> {
       body: Stack(
         children: [
           PersonaBackdrop(
-            hue: widget.quiz.accentHue,
             child: SafeArea(
               child: SingleChildScrollView(
                 padding: const EdgeInsets.fromLTRB(18, 8, 18, 28),
@@ -125,7 +124,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen> {
                           Text(
                             _result.subtitle,
                             style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                                  color: scheme.primary,
+                                  color: scheme.onSurface,
                                   fontWeight: FontWeight.w700,
                                 ),
                           ),
@@ -186,7 +185,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen> {
               minBlastForce: 8,
               gravity: 0.22,
               shouldLoop: false,
-              colors: [scheme.primary, scheme.secondary, Colors.white],
+              colors: [Colors.white, Colors.black, scheme.surfaceContainerHighest],
             ),
           ),
           Positioned(
@@ -198,7 +197,6 @@ class _ResultScreenState extends ConsumerState<ResultScreen> {
                 quizTitle: widget.quiz.title,
                 resultTitle: _result.title,
                 subtitle: _result.subtitle,
-                accentHue: widget.quiz.accentHue,
               ),
             ),
           ),
@@ -216,7 +214,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen> {
         children: [
           Row(
             children: [
-              Icon(icon, size: 22, color: scheme.primary),
+              Icon(icon, size: 22, color: scheme.onSurface),
               const SizedBox(width: 8),
               Text(title, style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800)),
             ],
@@ -228,7 +226,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('• ', style: TextStyle(color: scheme.secondary, fontWeight: FontWeight.w900)),
+                  Text('• ', style: TextStyle(color: scheme.onSurface.withValues(alpha: 0.75), fontWeight: FontWeight.w900)),
                   Expanded(child: Text(b, style: Theme.of(context).textTheme.bodyMedium?.copyWith(height: 1.35))),
                 ],
               ),

@@ -59,17 +59,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Theme.of(context).scaffoldBackgroundColor,
-              scheme.primary.withValues(alpha: 0.22),
-              scheme.secondary.withValues(alpha: 0.18),
-            ],
-          ),
-        ),
+        color: Theme.of(context).scaffoldBackgroundColor,
         child: SafeArea(
           child: Column(
             children: [
@@ -108,7 +98,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                                   s.body,
                                   textAlign: TextAlign.center,
                                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                                        color: scheme.onSurface.withValues(alpha: 0.78),
+                                        color: scheme.onSurface.withValues(alpha: 0.72),
                                         height: 1.35,
                                       ),
                                 ),
@@ -140,7 +130,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                     width: i == _page ? 22 : 8,
                     height: 8,
                     decoration: BoxDecoration(
-                      color: i == _page ? scheme.primary : scheme.outline.withValues(alpha: 0.35),
+                      color: i == _page ? scheme.onSurface : scheme.outline.withValues(alpha: 0.3),
                       borderRadius: BorderRadius.circular(999),
                     ),
                   ),

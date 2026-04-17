@@ -59,7 +59,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         ],
       ),
       body: PersonaBackdrop(
-        hue: 268,
         child: SafeArea(
           child: quizzesAsync.when(
             loading: () => const Center(child: CircularProgressIndicator()),
@@ -157,7 +156,6 @@ class _QuizCategoryTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
-    final accent = HSVColor.fromAHSV(1, quiz.accentHue, 0.55, scheme.brightness == Brightness.dark ? 0.85 : 0.45).toColor();
     return GlassCard(
       onTap: onOpen,
       padding: const EdgeInsets.all(16),
@@ -170,8 +168,8 @@ class _QuizCategoryTile extends StatelessWidget {
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16),
-                  gradient: LinearGradient(colors: [accent.withValues(alpha: 0.35), scheme.secondary.withValues(alpha: 0.22)]),
-                  border: Border.all(color: Colors.white.withValues(alpha: 0.18)),
+                  color: scheme.surfaceContainerHighest,
+                  border: Border.all(color: scheme.outline.withValues(alpha: 0.18)),
                 ),
                 child: Icon(iconFromName(quiz.iconName), color: scheme.onSurface),
               ),
@@ -204,7 +202,7 @@ class _QuizCategoryTile extends StatelessWidget {
           Text(
             '${quiz.questions.length} questions',
             style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                  color: scheme.primary,
+                  color: scheme.onSurface.withValues(alpha: 0.68),
                   fontWeight: FontWeight.w700,
                 ),
           ),

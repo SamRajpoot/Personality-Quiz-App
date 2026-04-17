@@ -35,9 +35,9 @@ class QuizProgressBar extends StatelessWidget {
                     width: w,
                     height: height,
                     decoration: BoxDecoration(
-                      color: scheme.surfaceContainerHighest.withValues(alpha: 0.45),
+                      color: scheme.surfaceContainerHighest.withValues(alpha: 0.5),
                       borderRadius: BorderRadius.circular(999),
-                      border: Border.all(color: scheme.outline.withValues(alpha: 0.15)),
+                      border: Border.all(color: scheme.outline.withValues(alpha: 0.18)),
                     ),
                   ),
                   Container(
@@ -45,16 +45,7 @@ class QuizProgressBar extends StatelessWidget {
                     height: height,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(999),
-                      gradient: LinearGradient(
-                        colors: [scheme.primary, scheme.secondary],
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: scheme.primary.withValues(alpha: 0.45),
-                          blurRadius: 12,
-                          spreadRadius: 0,
-                        ),
-                      ],
+                      color: scheme.primary,
                     ),
                   ),
                 ],

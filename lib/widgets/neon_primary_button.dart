@@ -22,7 +22,6 @@ class NeonPrimaryButton extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 16),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
       elevation: 0,
-      shadowColor: scheme.primary.withValues(alpha: 0.55),
       backgroundColor: scheme.primary,
       foregroundColor: scheme.onPrimary,
     );

@@ -17,12 +17,12 @@ class SettingsScreen extends ConsumerWidget {
       extendBodyBehindAppBar: true,
       appBar: AppBar(title: const Text('Settings')),
       body: PersonaBackdrop(
-        hue: 250,
         child: SafeArea(
           child: settingsAsync.when(
             loading: () => const Center(child: CircularProgressIndicator()),
             error: (e, _) => Center(child: Text('Settings unavailable\n$e')),
             data: (s) {
+              final scheme = Theme.of(context).colorScheme;
               return ListView(
                 padding: const EdgeInsets.fromLTRB(18, 8, 18, 28),
                 physics: const BouncingScrollPhysics(),
@@ -40,9 +40,42 @@ class SettingsScreen extends ConsumerWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Appearance', style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800)),
-                        const SizedBox(height: 10),
+                        Row(
+                          children: [
+                            const Icon(Icons.contrast_rounded, size: 18),
+                            const SizedBox(width: 8),
+                            Text('Appearance', style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800)),
+                          ],
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          'Choose a mode with clear contrast and better readability.',
+                          style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                                color: scheme.onSurface.withValues(alpha: 0.72),
+                              ),
+                        ),
+                        const SizedBox(height: 12),
                         SegmentedButton<ThemeMode>(
+                          style: ButtonStyle(
+                            textStyle: MaterialStateProperty.resolveWith((states) {
+                              return Theme.of(context).textTheme.labelLarge?.copyWith(fontWeight: FontWeight.w700);
+                            }),
+                            foregroundColor: MaterialStateProperty.resolveWith((states) {
+                              if (states.contains(MaterialState.selected)) return scheme.onPrimary;
+                              return scheme.onSurface;
+                            }),
+                            backgroundColor: MaterialStateProperty.resolveWith((states) {
+                              if (states.contains(MaterialState.selected)) return scheme.onSurface;
+                              return scheme.surface;
+                            }),
+                            side: MaterialStateProperty.resolveWith((states) {
+                              return BorderSide(color: scheme.outline, width: 1);
+                            }),
+                            iconColor: MaterialStateProperty.resolveWith((states) {
+                              if (states.contains(MaterialState.selected)) return scheme.onPrimary;
+                              return scheme.onSurface;
+                            }),
+                          ),
                           segments: const [
                             ButtonSegment(value: ThemeMode.light, label: Text('Light'), icon: Icon(Icons.light_mode_outlined)),
                             ButtonSegment(value: ThemeMode.dark, label: Text('Dark'), icon: Icon(Icons.dark_mode_outlined)),
@@ -125,7 +158,7 @@ class SettingsScreen extends ConsumerWidget {
                     'Version ${AppConstants.version} (${AppConstants.buildNumber})',
                     textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                          color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.55),
+                          color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.7),
                         ),
                   ),
                 ],

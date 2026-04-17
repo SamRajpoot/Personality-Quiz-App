@@ -46,17 +46,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Theme.of(context).scaffoldBackgroundColor,
-              scheme.primary.withValues(alpha: 0.35),
-              scheme.secondary.withValues(alpha: 0.28),
-            ],
-          ),
-        ),
+        color: Theme.of(context).scaffoldBackgroundColor,
         child: SafeArea(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -69,7 +59,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
                   height: 112,
                   fit: BoxFit.cover,
                   errorBuilder: (context, error, stackTrace) =>
-                      Icon(Icons.auto_awesome, size: 96, color: scheme.primary),
+                      Icon(Icons.auto_awesome, size: 96, color: scheme.onSurface),
                 ),
               )
                   .animate()
@@ -94,7 +84,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
                 AppConstants.appTagline,
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.72),
+                      color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.7),
                       fontWeight: FontWeight.w500,
                     ),
               ).animate().fadeIn(duration: 500.ms, delay: 220.ms),

@@ -162,7 +162,6 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
           title: Text(q.title, maxLines: 1, overflow: TextOverflow.ellipsis),
         ),
         body: PersonaBackdrop(
-          hue: q.accentHue,
           child: SafeArea(
             child: Padding(
               padding: const EdgeInsets.fromLTRB(18, 8, 18, 18),
